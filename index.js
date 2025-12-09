@@ -4,3 +4,24 @@
 // Only consecutive duplicates are compressed.
 // Words are separated by single spaces.
 // For example, given "yes yes yes please", return "yes(3) please".
+
+function compressString(sentence) {
+  console.log(sentence);
+  // split into array
+  const arr = sentence.split(' ');
+  console.log(arr);
+  let counter = 0;
+  arr.forEach((x, i) => {
+    console.log(x, i);
+  });
+  // {
+  // if (arr[i] === arr[i + 1]) {
+  //   counter++
+  //   console.log("Matching: ", arr[i], arr[i + 1])
+  // }
+  // }
+  console.log(counter);
+  return sentence;
+}
+
+compressString('route route route route route route tee tee tee tee tee tee');
