@@ -9,10 +9,16 @@ function compressString(sentence) {
   console.log(sentence);
   // split into array
   const arr = sentence.split(' ');
-  console.log(arr);
+  //console.log(arr)
   let counter = 0;
   arr.forEach((x, i) => {
-    console.log(x, i);
+    arr.forEach((p) => {
+      if (p === x) {
+        console.log('Match');
+      }
+      //console.log(p, x)
+    });
+    // console.log(x,i)
   });
   // {
   // if (arr[i] === arr[i + 1]) {
