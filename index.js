@@ -54,12 +54,43 @@
 function compressString(sentence) {
   // split into array
   const arr = sentence.split(' ');
+  // previous
+  // result arr
+  const result = [];
 
-  const counts = new Map();
+  // const counts = new Map(); dont need this!
 
-  for (const count of arr) {
-    counts.set(count, (counts.get(count) || 0) + 1);
+  //for (const count of arr) {
+  // let item = arr[0];
+  // if (item !== count) {
+  //   result.push(count)
+  // }
+  // console.log(count)
+  // console.log(result)
+
+  let previous = arr[0];
+  let counter = 1;
+  for (let i = 1; i < arr.length; i++) {
+    console.log(arr[i]);
+    if (previous === arr[i]) {
+      console.log('Matching');
+      counter++;
+    } else if (previous !== arr[i]) {
+      result.push(`${previous}${counter > 1 ? `(${counter})` : ''}`);
+      // if (counter > 1) {
+      // result.push(`(${counter})`)
+      // }
+      counter = 1;
+      previous = arr[i];
+    }
   }
+  result.push(`${previous}${counter > 1 ? `(${counter})` : ''}`);
+  // if (counter > 1) {
+  //   result.push(`(${counter})`)
+  //}
 
-  console.log(counts);
+  console.log(result.join(' '));
+  return result.join(' ');
 }
+
+// compressString("yes yes yes please") should return "yes(3) please".
