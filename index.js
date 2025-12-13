@@ -32,21 +32,34 @@
 
 // compressString('route route route route route route tee tee tee tee tee tee');
 
+// function compressString(sentence) {
+// set a counter
+//   let counter = 1;
+//  console.log(sentence)
+// turn into an arr
+//  const arr = sentence.split(" ");
+//  console.log(arr)
+//  arr.forEach((x, i) => {
+// looping through
+//    console.log( x, i)
+// if x is the same as the next item
+//    if (x === arr[i + 1]) {
+//      counter++
+//      console.log("Match!")
+//    }
+//  })
+//  console.log(counter)
+// }
+
 function compressString(sentence) {
-  // set a counter
-  let counter = 0;
-  console.log(sentence);
-  // turn into an arr
+  // split into array
   const arr = sentence.split(' ');
-  console.log(arr);
-  arr.forEach((x, i) => {
-    // looping through
-    console.log(x, i);
-    // if x is the same as the next item
-    if (x === arr[i + 1]) {
-      counter++;
-      console.log('Match!');
-    }
-  });
-  console.log(counter);
+
+  const counts = new Map();
+
+  for (const count of arr) {
+    counts.set(count, (counts.get(count) || 0) + 1);
+  }
+
+  console.log(counts);
 }
